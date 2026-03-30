@@ -9,307 +9,170 @@
 
 ---
 
-## 📌 Chosen Software: Git
+📌 Software Chosen: Git
 
-**Git** is a distributed version control system created by Linus Torvalds in 2005. It allows multiple developers to collaborate efficiently by tracking changes in source code and maintaining version history.
+In this project, we have worked with Git, which is a distributed version control system developed by Linus Torvalds in 2005. Git is mainly used to track changes in source code and helps multiple developers work together on the same project without conflicts.
 
----
+🎯 Objective of the Project
 
-## 🎯 Project Objective
+The main goal of this project is to understand and explore an open-source software tool (Git). Along with that, we also aimed to:
 
-The objective of this project is to:
+Study its background, license, and working philosophy
+See how it behaves in a Linux environment
+Get familiar with the FOSS (Free and Open Source Software) ecosystem
+Write and run shell scripts to understand automation and system-level operations
+🧠 Overview of Git
 
-* Analyze an open-source software (Git)
-* Understand its **origin, license, and philosophy**
-* Study its behavior on a **Linux system**
-* Explore the **FOSS ecosystem**
-* Implement **Linux shell scripts** demonstrating automation and system interaction
+Git works on a distributed system, which means every user has a complete copy of the project repository on their system. This makes it reliable and fast.
 
----
+In Git:
 
-## 🧠 What is Git? (Working Overview)
+Changes are saved in the form of commits
+Work is shared using commands like push and pull
+Different changes are combined using merge
+🔄 Basic Workflow:
+git init
+git add .
+git commit -m "message"
+git push
+⚙️ System Requirements
+💻 Hardware:
+At least 2GB RAM
+Around 10GB of free storage
+🖥️ Software:
+Linux OS (Ubuntu is recommended)
+Bash shell
+Git installed
+📦 Installation Process
 
-Git works on a **distributed model**, meaning:
+First, we updated the system packages:
 
-* Every user has a **complete copy of the repository**
-* Changes are tracked using **commits**
-* Collaboration happens via **push, pull, and merge operations**
-
-### 🔄 Basic Workflow:
-
-```bash
-git init        # Initialize repository
-git add .       # Stage changes
-git commit -m "message"   # Save snapshot
-git push        # Upload to remote repo
-```
-
----
-
-## ⚙️ System Requirements
-
-### 💻 Hardware Requirements
-
-* Minimum 2GB RAM
-* 10GB free disk space
-
-### 🖥️ Software Requirements
-
-* Linux OS (Ubuntu recommended)
-* Bash shell
-* Git installed
-
----
-
-## 📦 Installation Guide
-
-### 🔹 Step 1: Update system packages
-
-```bash
 sudo apt update
 sudo apt upgrade -y
-```
 
-### 🔹 Step 2: Install required packages
+Then we installed Git:
 
-```bash
 sudo apt install git -y
-```
 
-### 🔹 Step 3: Verify installation
+To confirm installation:
 
-```bash
 git --version
-```
+📂 Project Structure
 
-Expected output:
+The project is organized in the following way:
 
-```bash
-git version 2.x.x
-```
-
----
-
-## 📂 Project Structure
-
-```bash
 oss-audit-[rollnumber]/
-│
 ├── README.md
 ├── script1.sh
 ├── script2.sh
 ├── script3.sh
 ├── script4.sh
 └── script5.sh
-```
+💻 Description of Shell Scripts
+🔹 Script 1: System Information
 
----
+This script shows basic details of the system like kernel version, user name, uptime, and OS details. It uses simple Linux commands like uname, whoami, and uptime to collect the information.
 
-## 💻 Shell Scripts — Detailed Explanation
+Concepts used:
 
----
+Variables
+Command substitution
+Output formatting
+🔹 Script 2: Package Checker
 
-### 🔹 Script 1: System Identity Report
+This script checks whether Git is installed on the system or not. If it is installed, it displays version and package details.
 
-#### 📌 Purpose:
+Concepts used:
 
-Displays basic system information such as:
+if-else conditions
+case statements
+dpkg commands
+grep and pipes
+🔹 Script 3: Disk and Permissions
 
-* Kernel version
-* Logged-in user
-* Linux distribution
-* Uptime
-* Date and time
-* Open source license
+This script goes through some system directories and shows their permissions, owner, and size.
 
-#### ⚙️ Concepts Used:
+Concepts used:
 
-* Variables
-* Command substitution (`$()`)
-* echo formatting
+for loop
+arrays
+ls and du commands
+awk
+🔹 Script 4: Log Analyzer
 
-#### ▶️ How it works:
+This script reads a log file and counts how many times a particular keyword (like "error") appears. It also shows the last few matching lines.
 
-The script fetches system information using Linux commands like:
+Concepts used:
 
-* `uname -r` → Kernel version
-* `whoami` → Current user
-* `uptime -p` → System uptime
-* `lsb_release -d` → Distribution info
+while loop
+conditions
+command-line arguments
+counters
+🔹 Script 5: Open Source Statement Generator
 
----
+This script takes input from the user and creates a small paragraph about open-source ideas, then saves it into a file.
 
-### 🔹 Script 2: FOSS Package Inspector
+Concepts used:
 
-#### 📌 Purpose:
+user input (read)
+string handling
+file operations
+▶️ How to Run the Project
 
-* Checks if Git is installed
-* Displays version and package details
-* Prints a philosophy statement
+First, clone the repository:
 
-#### ⚙️ Concepts Used:
-
-* if-else condition
-* case statement
-* dpkg package manager
-* grep and pipes
-
-#### ▶️ How it works:
-
-* Uses `dpkg -l` to check installation
-* Extracts details using `dpkg -s`
-* Uses `case` to print software description
-
----
-
-### 🔹 Script 3: Disk and Permission Auditor
-
-#### 📌 Purpose:
-
-* Checks system directories
-* Displays:
-
-  * Permissions
-  * Owner
-  * Disk usage
-
-#### ⚙️ Concepts Used:
-
-* for loop
-* array handling
-* awk
-* du and ls commands
-
-#### ▶️ How it works:
-
-* Loops through predefined directories
-* Extracts permissions using `ls -ld`
-* Calculates size using `du -sh`
-
----
-
-### 🔹 Script 4: Log File Analyzer
-
-#### 📌 Purpose:
-
-* Reads log files
-* Counts occurrences of a keyword (default: "error")
-
-#### ⚙️ Concepts Used:
-
-* while loop
-* if condition
-* command-line arguments
-* counters
-
-#### ▶️ How it works:
-
-* Reads file line-by-line
-* Matches keyword using `grep`
-* Counts occurrences
-* Displays last 5 matching lines
-
----
-
-### 🔹 Script 5: Open Source Manifesto Generator
-
-#### 📌 Purpose:
-
-* Generates a personalized open-source statement
-
-#### ⚙️ Concepts Used:
-
-* user input (`read`)
-* string concatenation
-* file handling
-
-#### ▶️ How it works:
-
-* Takes 3 inputs from user
-* Combines them into a paragraph
-* Saves output to a `.txt` file
-
----
-
-## ▶️ How to Run the Project
-
-### Step 1: Clone repository
-
-```bash
 git clone <your-repo-link>
 cd oss-audit-[rollnumber]
-```
 
-### Step 2: Give execution permission
+Then give execution permission:
 
-```bash
 chmod +x *.sh
-```
 
-### Step 3: Execute scripts
+Finally, run the scripts:
 
-```bash
 ./script1.sh
 ./script2.sh
 ./script3.sh
 ./script4.sh /var/log/syslog error
 ./script5.sh
-```
+📊 Concepts Learned
 
----
+From this project, we understood:
 
-## 📊 Key Linux Concepts Demonstrated
+File permissions in Linux
+Package management
+Basics of shell scripting
+Automation using scripts
+How to analyze log files
+🔐 Security Points
+Scripts are designed to avoid unnecessary root access
+Files are checked before accessing
+No sensitive system files are modified
+🌍 Importance of Git
 
-* File permissions
-* Package management
-* Shell scripting basics
-* Process of automation
-* Log file analysis
+Git is very important in modern development because it helps in:
 
----
+Managing code versions
+Working in teams
+Contributing to open-source projects
+Keeping track of all changes
 
-## 🔐 Security Considerations
+It is widely used on platforms like GitHub and GitLab.
 
-* Scripts avoid running as root unnecessarily
-* File access is checked before reading
-* Sensitive directories are not modified
+📌 Conclusion
 
----
+Overall, this project helped in understanding both theoretical and practical aspects of open-source tools. Git plays a very important role in software development, and through this project, we got hands-on experience with Linux and shell scripting as well.
 
-## 🌍 Importance of Git in Open Source
+📎 Future Scope
+Add graphical tools for better visualization
+Improve scripts with more automation
+Connect with CI/CD tools
+🙌 What We Learned
 
-Git plays a major role in:
+This project gave us a clear idea about:
 
-* Version control
-* Collaborative development
-* Open-source contribution
-* Code history tracking
-
-It is used in platforms like GitHub and GitLab.
-
----
-
-## 📌 Conclusion
-
-This project demonstrates how open-source tools like Git empower developers with freedom, transparency, and collaboration. Through both theoretical analysis and practical scripting, the project highlights the importance of open-source software in modern computing.
-
----
-
-## 📎 Future Improvements
-
-* Add GUI-based monitoring tools
-* Extend scripts with automation tasks
-* Integrate with CI/CD pipelines
-
----
-
-## 🙌 Acknowledgment
-
-This project helped in understanding:
-
-* Linux environment
-* Open source philosophy
-* Practical scripting skills
-
+Working in a Linux environment
+Basics of open-source software
+Writing and understanding shell scripts
 ---
 
